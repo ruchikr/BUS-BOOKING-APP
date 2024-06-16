@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f4f4f4;
+    }
+    .container {
+        max-width: 600px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+        text-align: center;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+    label {
+        margin: 10px 0 5px;
+    }
+    input, select, button {
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    button {
+        background-color: #28a745;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #218838;
+    }
+    .filter-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    .filter-container select {
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    .bookings {
+        margin-top: 20px;
+    }
+    .bookings ul {
+        list-style: none;
+        padding: 0;
+    }
+    .booking-item {
+        background: #f9f9f9;
+        margin: 10px 0;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+    .booking-item button {
+        margin-left: 10px;
+    }
+</style>
+</head>
+
+<body style="margin: 0">
+
+  <div id="container">
+    <h1>Bus Booking</h1>
+    <div class="filter-container">
+        <label for="filter">Filter:</label>
+        <select id="filter" onchange="filterBookings()">
+            <option value="All">All</option>
+            <option value="Bus 1">Bus 1</option>
+            <option value="Bus 2">Bus 2</option>
+            <option value="Bus 3">Bus 3</option>
+        </select>
+    </div>
+    <form  id="busBookingForm"onsubmit="handleFormSubmit(event) >
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" required/>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" required />
+        <label for="phone">Phone No</label>
+        <input type="tel" name="phone" id="phone" required/>
+        <label for="BusNumber">BusNumber:</label>
+        <select name="BusNumber" id="BusNumber">
+            <option value="Bus 1">Bus 1</option>
+            <option value="Bus 2">Bus 2</option>
+            <option value="Bus 3">Bus 3</option>
+        </select>
+        <button type="submit" onclick="bookBus()">Book</button>
+      </form>
+      <div class="bookings" id="bookings">
+        <ul></ul>
+      </div>
+  </div>
+
+  
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.1/axios.min.js"></script>
+<script src="index.js"></script>
+
+</html>
